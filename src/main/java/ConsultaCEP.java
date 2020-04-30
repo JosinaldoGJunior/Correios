@@ -15,7 +15,7 @@ public class ConsultaCEP {
       navegador.findElement(By.name("relaxation")).click();
       navegador.findElement(By.name("relaxation")).sendKeys("06445500");
       navegador.findElement(By.cssSelector(".btn2")).click();
-
+      // testar commit
   }
 
 }
