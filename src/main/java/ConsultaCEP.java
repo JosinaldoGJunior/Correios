@@ -18,11 +18,11 @@ public class ConsultaCEP {
     }
     @After
     public void finalizar(){
-        navegador.quit();
+      //navegador.quit();
     }
 
     @Test
-    public void testValidarConsultaDeLogradouro() {
+    public void testValidarConsultaDeCEP() {
         navegador.findElement(By.name("relaxation")).click();
         navegador.findElement(By.name("relaxation")).sendKeys("06445500");
         navegador.findElement(By.cssSelector(".btn2")).click();
@@ -38,6 +38,47 @@ public class ConsultaCEP {
         System.out.println(bairro);
         System.out.println(localidadeUF);
         System.out.println(CEP);
+    }
 
-  }
+    @Test
+    public void testValidarConsultaDeLogradouro() {
+        navegador.findElement(By.name("relaxation")).click();
+        navegador.findElement(By.name("relaxation")).sendKeys("Josinaldo Silva");
+        navegador.findElement(By.cssSelector(".btn2")).click();
+
+        //logradoura 1
+        String logradouro1 = navegador.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(1)")).getText();
+        Assert.assertEquals("Rua Josinaldo Belo da Silva ", logradouro1 );
+        String bairro1 = navegador.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(2)")).getText();
+        Assert.assertEquals("Paratibe ", bairro1 );
+        String localidadeUF1 = navegador.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(3)")).getText();
+        Assert.assertEquals("João Pessoa/PB ", localidadeUF1 );
+        String CEP1 = navegador.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(4)")).getText();
+        Assert.assertEquals("58062-333", CEP1 );
+
+        //logradoura 2
+        String logradouro2 = navegador.findElement(By.cssSelector("tr:nth-child(3) > td:nth-child(1)")).getText();
+        Assert.assertEquals("Rua Josinaldo Lopes da Silva ", logradouro2 );
+        String bairro2 = navegador.findElement(By.cssSelector("tr:nth-child(3) > td:nth-child(2)")).getText();
+        Assert.assertEquals("Jardins ", bairro2 );
+        String localidadeUF2 = navegador.findElement(By.cssSelector("tr:nth-child(3) > td:nth-child(3)")).getText();
+        Assert.assertEquals("São Gonçalo do Amarante/RN ", localidadeUF2 );
+        String CEP2 = navegador.findElement(By.cssSelector("tr:nth-child(3) > td:nth-child(4)")).getText();
+        Assert.assertEquals("59293-300", CEP2 );
+
+        //logradoura 3
+        String logradouro3 = navegador.findElement(By.cssSelector("tr:nth-child(4) > td:nth-child(1)")).getText();
+        Assert.assertEquals("Rua Josinaldo Florêncio da Silva ", logradouro3 );
+        String bairro3 = navegador.findElement(By.cssSelector("tr:nth-child(4) > td:nth-child(2)")).getText();
+        Assert.assertEquals("Gramame ", bairro3 );
+        String localidadeUF3 = navegador.findElement(By.cssSelector("tr:nth-child(4) > td:nth-child(3)")).getText();
+        Assert.assertEquals("João Pessoa/PB ", localidadeUF3 );
+        String CEP3 = navegador.findElement(By.cssSelector("tr:nth-child(4) > td:nth-child(4)")).getText();
+        Assert.assertEquals("58069-472", CEP3 );
+
+        System.out.println("-------------------------------------------------------------");
+        System.out.println(logradouro1 + "     | " + bairro1 + "| " + localidadeUF1 + "            | " + CEP1 );
+        System.out.println(logradouro2 + "    | " + bairro2 + " | " + localidadeUF2 + "| " + CEP2 );
+        System.out.println(logradouro3 + "| " + bairro3 + " | " + localidadeUF3 + "            | " + CEP3 );
+    }
 }
