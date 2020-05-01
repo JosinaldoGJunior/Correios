@@ -18,7 +18,7 @@ public class ConsultaCEP {
     }
     @After
     public void finalizar(){
-      //navegador.quit();
+      navegador.quit();
     }
 
     @Test
